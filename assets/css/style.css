@@ -97,8 +97,6 @@ body {
 
 .yourMsg {
     position: absolute;
-    font-size: 8em;
-    font-family: 500;
     color: #fff;
     text-align: center;
     line-height: 0.6em;
@@ -107,6 +105,13 @@ body {
 }
 
 .yourMsg span {
-    font-size: 0.5em;
+    font-size: 1.5em;
     font-weight: 300;
+}
+
+.yourMsg p {
+    margin-top: 20px;
+    font-size: 0.5em;
+    color: #fff;
+    /* font-weight: 300; */
 }

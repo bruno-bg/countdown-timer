@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Time</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+
+    <div id="time">
+
+        <div class="circle" style="--clr:#1c7ed6;">
+            <svg>
+                <circle cx="70" cy="70" r="70" id="dd"></circle>
+            </svg>
+            <div id="days">00<br><span>Dias</span></div>
+        </div>
+
+        <div class="circle" style="--clr:#f03e3e;">
+            <svg>
+                <circle cx="70" cy="70" r="70" id="hh"></circle>
+            </svg>
+            <div id="hours">00<br><span>Horas</span></div>
+        </div>
+
+        <div class="circle" style="--clr:#f59f00;">
+            <svg>
+                <circle cx="70" cy="70" r="70" id="mm"></circle>
+            </svg>
+            <div id="minutes">00<br><span>Minutos</span></div>
+        </div>
+
+        <div class="circle" style="--clr:#37b24d;">
+            <svg>
+                <circle cx="70" cy="70" r="70" id="ss"></circle>
+            </svg>
+            <div id="seconds">00<br><span>Segundos</span></div>
+        </div>
+
+    </div>
+
+    <h2 class="yourMsg">
+        <span>Sua mensagem quando o contador finalizar</span>
+        <p>
+            <img src="./assets/img/rotate-left-solid.svg" width="20" height="20" alt="logo">
+        </p>
+    </h2>
+
+    <script src="./assets/js/main.js"></script>
+
+</body>
+
+</html>
