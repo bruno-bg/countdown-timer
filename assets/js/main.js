@@ -45,7 +45,7 @@ console.log('Hora + 1 minuto:', formatarHora(horaComUmMinuto));
 
 // Data manual 
 // Formato da data mm/dd/yyyy e o formato da hora hh:mm:ss
-let endDate = `06/05/2025 ${formatarHora(horaComUmMinuto)}`;
+let endDate = `${dataFormatada} ${formatarHora(horaComUmMinuto)}`;
 
 let x = setInterval(function () {
     let now = new Date(endDate).getTime();
