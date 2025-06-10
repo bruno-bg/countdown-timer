@@ -17,20 +17,35 @@ const ano = today.getFullYear();
 const dataFormatada = `${mes}/${dia}/${ano}`;
 
 
-const maisCincoDias = new Date(today.getTime() + 5 * 24 * 60 * 60 * 1000);
-const month = maisCincoDias.getMonth() + 1;
-const day = maisCincoDias.getDate();
-const year = maisCincoDias.getFullYear();
-const formattedDate = `${month}/${day}/${year}`;
+// const maisCincoDias = new Date(today.getTime() + 5 * 24 * 60 * 60 * 1000);
+// const month = maisCincoDias.getMonth() + 1;
+// const day = maisCincoDias.getDate();
+// const year = maisCincoDias.getFullYear();
+// const formattedDate = `${month}/${day}/${year}`;
 
 //Automático (adicionado 5 dias da data atual)
-let endDate = formattedDate;
+// let endDate = formattedDate;
 // FIM - Exemplo automático, caso queira pode ser feito com uma data específica
 
 
+// Exemplo de como adicionar 1 minuto à hora atual e formatar
+const horaAtual = new Date();
+const horaComUmMinuto = new Date(horaAtual.getTime() + 1 * 60 * 1000);
+
+// Função para formatar a hora no formato HH:mm:ss
+function formatarHora(data) {
+    const horas = String(data.getHours()).padStart(2, '0');
+    const minutos = String(data.getMinutes()).padStart(2, '0');
+    const segundos = String(data.getSeconds()).padStart(2, '0');
+    return `${horas}:${minutos}:${segundos}`;
+}
+
+console.log('Hora atual:', formatarHora(horaAtual));
+console.log('Hora + 1 minuto:', formatarHora(horaComUmMinuto));
+
 // Data manual 
 // Formato da data mm/dd/yyyy e o formato da hora hh:mm:ss
-// let endDate = '04/14/2024 00:00:00';
+let endDate = `${dataFormatada} ${formatarHora(horaComUmMinuto)}`;
 
 let x = setInterval(function () {
     let now = new Date(endDate).getTime();
