@@ -1,4 +1,5 @@
-let horaAlvoString = "22:15:00"; // Hora alvo no formato HH:mm:ss
+let horaAlvoString = "23:00:00"; // Hora alvo no formato HH:mm:ss
+
 
 function iniciarCountdown(horaAlvoString) {
   const agora = new Date();
@@ -12,6 +13,14 @@ function iniciarCountdown(horaAlvoString) {
   const interval = setInterval(() => {
     const agora = new Date();
     const diferenca = alvo.getTime() - agora.getTime();
+
+    // if (diferenca <= 0) {
+    //   clearInterval(interval);
+    //   console.log("⏰ Tempo esgotado!");
+    //   return;
+    // }
+
+
 
     if (diferenca <= 0) {
       clearInterval(interval);
@@ -29,10 +38,21 @@ function iniciarCountdown(horaAlvoString) {
     minutes.innerHTML = m + "<br><span>Minutos</span>";
     seconds.innerHTML = s + "<br><span>Segundos</span>";
 
+
     hh.style.strokeDashoffset = 440 - (440 * h) / 24;
     mm.style.strokeDashoffset = 440 - (440 * m) / 60;
     ss.style.strokeDashoffset = 440 - (440 * s) / 60;
 
+
+
+
+
+
+
+
+    // console.log(
+    //   `⏳ Faltam: ${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`
+    // );
   }, 1000);
 }
 
