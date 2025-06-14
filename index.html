@@ -10,42 +10,56 @@
 
 <body>
 
-    <div id="time">
+    <div id="formSection">
+        <input type="text" id="timeInput" placeholder="hh:mm:ss" required maxlength="8" />
+        <textarea id="messageInput" maxlength="200" placeholder="Digite sua mensagem (máx. 200 caracteres)"
+            required></textarea>
+        <div id="charCount">200 caracteres restantes</div>
+        <button id="defineBtn">Definir</button>
+    </div>
 
-        <!-- <div class="circle" style="--clr:#1c7ed6;">
-            <svg>
-                <circle cx="70" cy="70" r="70" id="dd"></circle>
-            </svg>
-            <div id="days">00<br><span>Dias</span></div>
-        </div> -->
+    <div class="hidden" id="timeR">
 
-        <div class="circle" style="--clr:#f03e3e;">
-            <svg>
-                <circle cx="70" cy="70" r="70" id="hh"></circle>
-            </svg>
-            <div id="hours">00<br><span>Horas</span></div>
-        </div>
+        <div id="time">
 
-        <div class="circle" style="--clr:#f59f00;">
-            <svg>
-                <circle cx="70" cy="70" r="70" id="mm"></circle>
-            </svg>
-            <div id="minutes">00<br><span>Minutos</span></div>
-        </div>
+            <div class="circle" style="--clr:#f03e3e;">
+                <svg>
+                    <circle cx="70" cy="70" r="70" id="hh"></circle>
+                </svg>
+                <div id="hours">00<br><span>Horas</span></div>
+            </div>
 
-        <div class="circle" style="--clr:#37b24d;">
-            <svg>
-                <circle cx="70" cy="70" r="70" id="ss"></circle>
-            </svg>
-            <div id="seconds">00<br><span>Segundos</span></div>
+            <div class="circle" style="--clr:#f59f00;">
+                <svg>
+                    <circle cx="70" cy="70" r="70" id="mm"></circle>
+                </svg>
+                <div id="minutes">00<br><span>Minutos</span></div>
+            </div>
+
+            <div class="circle" style="--clr:#37b24d;">
+                <svg>
+                    <circle cx="70" cy="70" r="70" id="ss"></circle>
+                </svg>
+                <div id="seconds">00<br><span>Segundos</span></div>
+            </div>
+
+            <div>
+                <button id="startBtn">Start</button>
+                <button id="pauseBtn" class="hidden">Pause</button>
+                <button id="resetBtn">Reset</button>
+                <button id="settingsBtn">Settings</button>
+            </div>
+
         </div>
 
     </div>
+
 
     <h2 class="yourMsg">
         <span>Sua mensagem quando o contador finalizar</span>
     </h2>
 
+    <script src="./assets/js/actions.js"></script>
     <script src="./assets/js/main.js"></script>
 
 </body>

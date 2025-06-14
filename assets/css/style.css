@@ -17,9 +17,9 @@ body {
 
 #time {
     display: flex;
-    /* este */ 
+    /* este */
     justify-content: center;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     gap: 30px;
 }
 
@@ -109,4 +109,33 @@ body {
 .yourMsg span {
     font-size: 0.5em;
     font-weight: 300;
+}
+
+/* Alterações */
+.hidden {
+    display: none;
+}
+
+input[type="text"],
+textarea {
+    width: 200px;
+    padding: 10px;
+    margin: 10px auto;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
 }
