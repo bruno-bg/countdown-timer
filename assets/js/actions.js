@@ -35,7 +35,8 @@ const timeInput = document.getElementById("timeInput");
 
     defineBtn.addEventListener("click", () => {
       if (!timeInput.value || !messageInput.value) {
-        alert("Preencha o tempo e a mensagem!");
+        // alert("Preencha o tempo e a mensagem!");
+        console.log("Preencha o tempo e a mensagem!");
         return;
       }
 
@@ -45,11 +46,10 @@ const timeInput = document.getElementById("timeInput");
       initialSeconds = totalSeconds;
       //olhar
       if (isNaN(totalSeconds) || totalSeconds <= 0) {
-        alert("Tempo inválido!");
+        // alert("Tempo inválido!");
+        console.log("Tempo inválido!");
         return;
       }
-
-      console.log("foi");
 
     //   updateTimerDisplay();
       formSection.classList.add("hidden");
@@ -86,7 +86,7 @@ const timeInput = document.getElementById("timeInput");
     });
 
     settingsBtn.addEventListener("click", resetToSettings);
-    newTimerBtn.addEventListener("click", resetToSettings);
+    // newTimerBtn.addEventListener("click", resetToSettings);
 
     function resetToSettings() {
       clearInterval(interval);
@@ -97,7 +97,7 @@ const timeInput = document.getElementById("timeInput");
       charCount.textContent = "200 caracteres restantes";
       formSection.classList.remove("hidden");
       timeR.classList.add("hidden");
-      messageSection.classList.add("hidden");
+    //   messageSection.classList.add("hidden");
     }
 
     function updateTimerDisplay() {

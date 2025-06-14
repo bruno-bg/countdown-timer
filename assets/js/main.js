@@ -1,4 +1,4 @@
-let horaAlvoString = "22:15:00"; // Hora alvo no formato HH:mm:ss
+let horaAlvoString = "23:15:00"; // Hora alvo no formato HH:mm:ss
 
 function iniciarCountdown(horaAlvoString) {
   const agora = new Date();
@@ -16,6 +16,7 @@ function iniciarCountdown(horaAlvoString) {
     if (diferenca <= 0) {
       clearInterval(interval);
         document.getElementById("time").style.display = "none";
+        document.getElementById("formSection").style.display = "none";
         document.querySelector(".yourMsg").style.display = "block";
       return;
     }
