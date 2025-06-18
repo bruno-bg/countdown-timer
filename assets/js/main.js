@@ -1,4 +1,4 @@
-let horaAlvoString = "23:15:00"; // Hora alvo no formato HH:mm:ss
+let horaAlvoString = tempo; // Hora alvo no formato HH:mm:ss
 
 function iniciarCountdown(horaAlvoString) {
   const agora = new Date();
