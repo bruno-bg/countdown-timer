@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function () {
   let interval = null;
   let horaAlvoString = "";
 
-
   // Máscara de tempo (hh:mm:ss)
   timeInput.addEventListener("input", (e) => {
     let v = e.target.value.replace(/[^0-9]/g, "");
@@ -48,10 +47,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const remaining = 200 - messageInput.value.length;
     charCount.textContent = `${remaining} caracteres restantes`;
   });
-
-
-
-
 
   // Botão de definir tempo e mensagem do formulário
   defineBtn.addEventListener("click", () => {
@@ -74,7 +69,6 @@ document.addEventListener('DOMContentLoaded', function () {
     minutes.innerHTML = mm + "<br><span>Minutos</span>";
     seconds.innerHTML = ss + "<br><span>Segundos</span>";
 
-    // Validações OK
     formSection.classList.add("hidden");
     timeR.classList.remove("hidden");
   });
@@ -100,7 +94,6 @@ document.addEventListener('DOMContentLoaded', function () {
       const m = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, "0");
       const s = String(totalSeconds % 60).padStart(2, "0");
 
-      // Atualiza o display do timer
       hours.innerHTML = h + "<br><span>Horas</span>";
       minutes.innerHTML = m + "<br><span>Minutos</span>";
       seconds.innerHTML = s + "<br><span>Segundos</span>";
@@ -117,33 +110,30 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log("start do timer está pronto!");
   });
 
- // Botão de reset do timer - volta para o tempo inicial
- resetBtn.addEventListener("click", () => {
+  // Botão de reset do timer - volta para o tempo inicial
+  resetBtn.addEventListener("click", () => {
 
-  clearInterval(interval);
-  
-  // Redefine o totalSeconds para o valor inicial
-  totalSeconds = initialSeconds;
-  
-  const hReset = String(Math.floor(initialSeconds / 3600)).padStart(2, "0");
-  const mReset = String(Math.floor((initialSeconds % 3600) / 60)).padStart(2, "0");
-  const sReset = String(initialSeconds % 60).padStart(2, "0");
-  
-  hours.innerHTML = hReset + "<br><span>Horas</span>";
-  minutes.innerHTML = mReset + "<br><span>Minutos</span>";
-  seconds.innerHTML = sReset + "<br><span>Segundos</span>";
+    clearInterval(interval);
 
-  // Reset dos círculos SVG
-  hh.style.strokeDashoffset = 440 - (440 * hReset) / 24;
-  mm.style.strokeDashoffset = 440 - (440 * mReset) / 60;
-  ss.style.strokeDashoffset = 440 - (440 * sReset) / 60;
+    totalSeconds = initialSeconds;
 
-  pauseBtn.classList.add("hidden");
-  startBtn.classList.remove("hidden");
+    const hReset = String(Math.floor(initialSeconds / 3600)).padStart(2, "0");
+    const mReset = String(Math.floor((initialSeconds % 3600) / 60)).padStart(2, "0");
+    const sReset = String(initialSeconds % 60).padStart(2, "0");
 
-  console.log("reset do timer está pronto!");
-});
+    hours.innerHTML = hReset + "<br><span>Horas</span>";
+    minutes.innerHTML = mReset + "<br><span>Minutos</span>";
+    seconds.innerHTML = sReset + "<br><span>Segundos</span>";
 
+    hh.style.strokeDashoffset = 440 - (440 * hReset) / 24;
+    mm.style.strokeDashoffset = 440 - (440 * mReset) / 60;
+    ss.style.strokeDashoffset = 440 - (440 * sReset) / 60;
+
+    pauseBtn.classList.add("hidden");
+    startBtn.classList.remove("hidden");
+
+    console.log("reset do timer está pronto!");
+  });
 
   // Botões de pausa
   pauseBtn.addEventListener("click", () => {
@@ -151,111 +141,43 @@ document.addEventListener('DOMContentLoaded', function () {
     pauseBtn.classList.add("hidden");
     startBtn.classList.remove("hidden");
 
-
-
-
-
-
-    console.log("pausa do timer em produção");
+    console.log("Timer pausado.");
   });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   function resetToSettings() {
-
     clearInterval(interval);
-    horaAlvoString = timeInput.value;
 
+    // Oculta o timer e exibe o formulário
+    timeR.classList.add("hidden");
+    formSection.classList.remove("hidden");
 
-    const [h1, m1, s1] = timeInput.value.split(":").map(Number);
-    totalSeconds = h1 * 3600 + m1 * 60 + s1;
-    initialSeconds = totalSeconds;
+    // Limpa os campos do formulário
+    timeInput.value = "";
+    messageInput.value = "";
+    charCount.textContent = "200 caracteres restantes";
 
-    const hStr = String(Math.floor(totalSeconds / 3600)).padStart(2, "0");
-    const mStr = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, "0");
-    const sStr = String(totalSeconds % 60).padStart(2, "0");
+    // Reseta completamente o estado do timer
+    totalSeconds = 0;
+    initialSeconds = 0;
 
-    // Atualiza o display do timer
-    hours.innerHTML = hStr + "<br><span>Horas</span>";
-    minutes.innerHTML = mStr + "<br><span>Minutos</span>";
-    seconds.innerHTML = sStr + "<br><span>Segundos</span>";
+    // Reseta o display do timer para o estado inicial
+    hours.innerHTML = "00<br><span>Horas</span>";
+    minutes.innerHTML = "00<br><span>Minutos</span>";
+    seconds.innerHTML = "00<br><span>Segundos</span>";
 
+    // Reseta os círculos SVG
+    hh.style.strokeDashoffset = 440;
+    mm.style.strokeDashoffset = 440;
+    ss.style.strokeDashoffset = 440;
+
+    // Reseta os botões de controle
     pauseBtn.classList.add("hidden");
     startBtn.classList.remove("hidden");
 
+    console.log("Timer redefinido, retornando ao formulário.");
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
   // Botão de redefinir para as configurações
   settingsBtn.addEventListener("click", resetToSettings);
-  // newTimerBtn.addEventListener("click", resetToSettings);
-
-
-
-
-
-
-
-
-  // function updateTimerDisplay() {
-  //   const h = String(Math.floor(totalSeconds / 3600)).padStart(2, "0");
-  //   const m = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, "0");
-  //   const s = String(totalSeconds % 60).padStart(2, "0");
-  //   timerDisplay.textContent = `${h}:${m}:${s}`;
-  // }
 
 });

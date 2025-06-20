@@ -125,7 +125,6 @@ body {
 }
 
 #timeR {
-    /* display: flex; */
     flex-direction: column;
     align-items: center;
 }
@@ -139,20 +138,6 @@ textarea {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-
-/* button {
-    margin: 5px;
-    padding: 10px 10px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-} */
 
 ion-icon {
     font-size: 32px;
