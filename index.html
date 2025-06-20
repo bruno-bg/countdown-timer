@@ -11,14 +11,21 @@
 <body>
 
     <div id="formSection">
-        <input type="text" id="timeInput" placeholder="hh:mm:ss" required maxlength="8" />
+        <h3>Configurar Timer</h3>
+        <div class="input-wrapper">
+            <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+            <input type="text" id="timeInput" placeholder="hh:mm:ss" required maxlength="8" />
+        </div>
 
-        <textarea id="messageInput" maxlength="200" placeholder="Digite sua mensagem (máx. 200 caracteres)"
-            required></textarea>
+        <div class="input-wrapper textarea-wrapper">
+            <ion-icon name="chatbox-outline" aria-hidden="true"></ion-icon>
+            <textarea id="messageInput" maxlength="200" placeholder="Digite sua mensagem"
+                required></textarea>
+        </div>
         <div id="charCount">200 caracteres restantes</div>
 
         <ion-button aria-label="Add Timer" id="defineBtn">
-            <ion-icon name="add-circle-outline" aria-hidden="true"></ion-icon>
+            <ion-icon name="add-circle-outline"></ion-icon>
         </ion-button>
     </div>
 
@@ -67,7 +74,7 @@
     </div>
 
     <h2 class="yourMsg">
-        <span>Sua mensagem quando o contador finalizar</span>
+        <span><div id="yourMsg"></div></span>
     </h2>
 
     <script src="./assets/js/main.js"></script>

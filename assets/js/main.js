@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Elementos do timer anterior
   const finalMessage = document.getElementById("finalMessage");
-  // const newTimerBtn = document.getElementById("newTimerBtn");
 
   // Elementos do timer digital e círculos SVG
   const hours = document.getElementById("hours");
@@ -51,24 +50,39 @@ document.addEventListener('DOMContentLoaded', function () {
   // Botão de definir tempo e mensagem do formulário
   defineBtn.addEventListener("click", () => {
     if (!timeInput.value || !messageInput.value) {
-      console.log(`Preencha o tempo e a mensagem! ${timeInput.value} ${messageInput.value}`);
+      console.log(`Preencha o tempo e a mensagem!`);
       return;
     }
 
-    // Validações
-    const [hh, mm, ss] = timeInput.value.split(":").map(Number);
-    totalSeconds = hh * 3600 + mm * 60 + ss;
+    // Validação de tempo mais robusta
+    const timeParts = timeInput.value.split(":");
+    const hh_val = Number(timeParts[0]) || 0;
+    const mm_val = Number(timeParts[1]) || 0;
+    const ss_val = Number(timeParts[2]) || 0;
+
+    totalSeconds = (hh_val * 3600) + (mm_val * 60) + ss_val;
     initialSeconds = totalSeconds;
 
-    if (isNaN(totalSeconds) || totalSeconds <= 0) {
-      console.log("Tempo inválido!");
+    if (totalSeconds <= 0) {
+      console.log("Tempo inválido! O tempo deve ser maior que zero.");
       return;
     }
 
-    hours.innerHTML = hh + "<br><span>Horas</span>";
-    minutes.innerHTML = mm + "<br><span>Minutos</span>";
-    seconds.innerHTML = ss + "<br><span>Segundos</span>";
+    // Formata os números para exibição com dois dígitos
+    const hStr = String(hh_val).padStart(2, "0");
+    const mStr = String(mm_val).padStart(2, "0");
+    const sStr = String(ss_val).padStart(2, "0");
 
+    hours.innerHTML = `${hStr}<br><span>Horas</span>`;
+    minutes.innerHTML = `${mStr}<br><span>Minutos</span>`;
+    seconds.innerHTML = `${sStr}<br><span>Segundos</span>`;
+
+    // Inicia os círculos SVG com o valor definido
+    hh.style.strokeDashoffset = 440 - (440 * hh_val) / 24;
+    mm.style.strokeDashoffset = 440 - (440 * mm_val) / 60;
+    ss.style.strokeDashoffset = 440 - (440 * ss_val) / 60;
+
+    // Alterna a visibilidade do formulário e do timer
     formSection.classList.add("hidden");
     timeR.classList.remove("hidden");
   });
@@ -86,6 +100,8 @@ document.addEventListener('DOMContentLoaded', function () {
         clearInterval(interval);
         document.getElementById("time").style.display = "none";
         document.getElementById("formSection").style.display = "none";
+        document.getElementById("controls").style.display = "none";
+        document.getElementById("yourMsg").innerHTML = messageInput.value;
         document.querySelector(".yourMsg").style.display = "block";
         return;
       }
@@ -106,8 +122,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     startBtn.classList.add("hidden");
     pauseBtn.classList.remove("hidden");
-
-    console.log("start do timer está pronto!");
   });
 
   // Botão de reset do timer - volta para o tempo inicial
@@ -131,8 +145,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     pauseBtn.classList.add("hidden");
     startBtn.classList.remove("hidden");
-
-    console.log("reset do timer está pronto!");
   });
 
   // Botões de pausa
@@ -140,8 +152,6 @@ document.addEventListener('DOMContentLoaded', function () {
     clearInterval(interval);
     pauseBtn.classList.add("hidden");
     startBtn.classList.remove("hidden");
-
-    console.log("Timer pausado.");
   });
 
   function resetToSettings() {
@@ -173,8 +183,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Reseta os botões de controle
     pauseBtn.classList.add("hidden");
     startBtn.classList.remove("hidden");
-
-    console.log("Timer redefinido, retornando ao formulário.");
   }
 
   // Botão de redefinir para as configurações
