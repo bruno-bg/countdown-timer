@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown Time</title>
+    <title>Countdown Timer</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
@@ -12,10 +12,14 @@
 
     <div id="formSection">
         <input type="text" id="timeInput" placeholder="hh:mm:ss" required maxlength="8" />
+
         <textarea id="messageInput" maxlength="200" placeholder="Digite sua mensagem (máx. 200 caracteres)"
             required></textarea>
         <div id="charCount">200 caracteres restantes</div>
-        <button id="defineBtn">Definir</button>
+
+        <ion-button aria-label="Add Timer" id="defineBtn">
+            <ion-icon name="add-circle-outline" aria-hidden="true"></ion-icon>
+        </ion-button>
     </div>
 
     <div class="hidden" id="timeR">
@@ -43,24 +47,33 @@
                 <div id="seconds">00<br><span>Segundos</span></div>
             </div>
 
-            <div>
-                <button id="startBtn">Start</button>
-                <button id="pauseBtn" class="hidden">Pause</button>
-                <button id="resetBtn">Reset</button>
-                <button id="settingsBtn">Settings</button>
-            </div>
+        </div>
 
+        <div id="controls">
+            <ion-button aria-label="Play timer" id="startBtn">
+                <ion-icon name="play-circle-outline" aria-hidden="true"></ion-icon>
+            </ion-button>
+            <ion-button aria-label="Pause timer" id="pauseBtn" class="hidden">
+                <ion-icon name="pause-circle-outline" aria-hidden="true"></ion-icon>
+            </ion-button>
+            <ion-button aria-label="Reset timer" id="resetBtn">
+                <ion-icon name="refresh-circle-outline" aria-hidden="true"></ion-icon>
+            </ion-button>
+            <ion-button aria-label="Back to form" id="settingsBtn">
+                <ion-icon name="arrow-back-circle-outline" aria-hidden="true"></ion-icon>
+            </ion-button>
         </div>
 
     </div>
-
 
     <h2 class="yourMsg">
         <span>Sua mensagem quando o contador finalizar</span>
     </h2>
 
-    <script src="./assets/js/actions.js"></script>
-    <!-- <script src="./assets/js/main.js"></script> -->
+    <script src="./assets/js/main.js"></script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 </body>
 

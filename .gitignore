@@ -4,6 +4,8 @@
 .idea/
 *.sublime-workspace
 *.sublime-project
+1/
+chat/
 
 # Sistema operacional
 .DS_Store
