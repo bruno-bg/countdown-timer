@@ -159,6 +159,23 @@ ion-button {
     height: 50px;
 }
 
+ion-button.defineBtn{
+    margin: 5px;
+    padding: 10px 10px;
+    border: 1px solid #1b1a1c;
+    background-color: #fff;
+    color: #1b1a1c;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    /* width: 50px; */
+    /* height: 50px; */
+}
+
 ion-button:hover {
     background-color: #0056b3;
     color: #fff;
