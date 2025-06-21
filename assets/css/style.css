@@ -280,27 +280,6 @@ ion-button:hover {
 }
 /* --- Fim dos Estilos do Formulário --- */
 
-/* Estilos dos botões do timer, agora com escopo */
-#controls ion-button {
-    margin: 5px;
-    padding: 10px 10px;
-    border: 1px solid #1b1a1c;
-    background-color: #007bff;
-    color: #1b1a1c;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-}
-
-#controls ion-button:hover {
-    background-color: #0056b3;
-    color: #fff;
-}
-
 /* Estilo do botão do formulário */
 #formSection ion-button {
     --background: #20c997;
@@ -312,4 +291,37 @@ ion-button:hover {
     font-size: 1.1em;
     height: 50px;
     margin: 10px 0 0 0;
+}
+
+/* Estilos dos botões do timer, agora com escopo */
+#controls ion-button {
+    margin: 5px;
+    padding: 10px 10px;
+    border: 1px solid #1b1a1c;
+    background-color: #4d4c51;
+    color: #1b1a1c;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+}
+
+#controls ion-button:hover {
+    background-color: #4d4c51;
+    color: #fff;
+}
+
+ion-button#startBtn {
+    color: #37b24d;
+}
+
+ion-button#resetBtn {
+    color: #f59f00;
+}
+
+ion-button#settingsBtn {
+    color: #f03e3e;
 }
