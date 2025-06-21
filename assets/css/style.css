@@ -318,6 +318,10 @@ ion-button#startBtn {
     color: #37b24d;
 }
 
+ion-button#pauseBtn {
+    color: #1c7ed6;
+}
+
 ion-button#resetBtn {
     color: #f59f00;
 }
