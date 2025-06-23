@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const settingsBtn = document.getElementById("settingsBtn");
   const messageSection = document.getElementById("messageSection");
 
-  // Elementos do timer
+  // Elementos do timer:
   const timeR = document.getElementById("timeR");
   const yourMsg = document.querySelector(".yourMsg");
 
